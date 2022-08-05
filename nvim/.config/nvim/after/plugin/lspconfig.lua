@@ -16,21 +16,37 @@ local source_mapping = {
 	path = "[Path]",
 }
 
+local function border(hl_name)
+  return {
+    { "╭", hl_name },
+    { "─", hl_name },
+    { "╮", hl_name },
+    { "│", hl_name },
+    { "╯", hl_name },
+    { "─", hl_name },
+    { "╰", hl_name },
+    { "│", hl_name },
+  }
+end
+
 local lspkind = require("lspkind")
+
 
 cmp.setup({
   snippet = {
 		expand = function(args)
-			-- For `vsnip` user.
-			-- vim.fn["vsnip#anonymous"](args.body)
-
-			-- For `luasnip` user.
 			require("luasnip").lsp_expand(args.body)
-
-			-- For `ultisnips` user.
-			-- vim.fn["UltiSnips#Anon"](args.body)
 		end,
 	},
+  window = {
+    completion = {
+      border = border "CmpBorder",
+      winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
+    },
+    documentation = {
+      border = border "CmpDocBorder"
+    }
+  },
 	mapping = cmp.mapping.preset.insert({
     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
