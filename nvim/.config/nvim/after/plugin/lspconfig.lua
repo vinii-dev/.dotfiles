@@ -138,6 +138,7 @@ require('lspconfig').html.setup(config())
 require('lspconfig').cssls.setup(config())
 require('lspconfig').pyright.setup(config())
 require('lspconfig').jsonls.setup(config())
+require('lspconfig').intelephense.setup(config())
 
 local snippets_paths = function()
 	local plugins = { "friendly-snippets" }
