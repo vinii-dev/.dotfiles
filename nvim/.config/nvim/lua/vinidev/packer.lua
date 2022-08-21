@@ -20,7 +20,12 @@ return require('packer').startup(function()
   use('glepnir/lspsaga.nvim')
   use('simrat39/symbols-outline.nvim')
   use('L3MON4D3/LuaSnip')
-  use('saadparwaiz1/cmp_luasnip')
+
+  use{
+    "saadparwaiz1/cmp_luasnip",
+    requires = "rafamadriz/friendly-snippets",
+  }
+
   use('williamboman/nvim-lsp-installer')
 
   use {
