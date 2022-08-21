@@ -52,6 +52,7 @@ return require('packer').startup(function()
   -- Visual
   use('norcalli/nvim-colorizer.lua')
   use('kyazdani42/nvim-web-devicons')
+  use('jwalton512/vim-blade')
 
   -- Games
   use('ThePrimeagen/vim-be-good')
