@@ -1,9 +1,13 @@
+require("nvim-lsp-installer").setup {}
+
 local Remap = require("vinidev.keymap")
 local nnoremap = Remap.nnoremap
 local inoremap = Remap.inoremap
 
 local sumneko_root_path = "/home/vini/personal/sumneko"
 local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
+
+local jdtls_binary = "/home/vini/.local/share/nvim/lsp_servers/jdtls/bin/jdtls"
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -126,6 +130,13 @@ require("lspconfig").sumneko_lua.setup(config({
 		},
 	},
 }))
+
+require('lspconfig').jdtls.setup(config())
+require('lspconfig').rust_analyzer.setup(config())
+require('lspconfig').emmet_ls.setup(config())
+require('lspconfig').html.setup(config())
+require('lspconfig').cssls.setup(config())
+require('lspconfig').pyright.setup(config())
 
 local snippets_paths = function()
 	local plugins = { "friendly-snippets" }

@@ -23,6 +23,18 @@ return require('packer').startup(function()
   use('saadparwaiz1/cmp_luasnip')
   use('williamboman/nvim-lsp-installer')
 
+  use {
+  "folke/trouble.nvim",
+  requires = "kyazdani42/nvim-web-devicons",
+  config = function()
+    require("trouble").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  end
+  }
+
   -- TreeSitter and things related 
   use({
     'nvim-treesitter/nvim-treesitter', {
