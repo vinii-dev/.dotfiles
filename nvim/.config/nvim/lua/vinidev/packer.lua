@@ -53,6 +53,16 @@ return require('packer').startup(function()
   use('norcalli/nvim-colorizer.lua')
   use('kyazdani42/nvim-web-devicons')
   use('jwalton512/vim-blade')
+  use({
+    "folke/twilight.nvim",
+    config = function()
+      require("twilight").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  })
 
   -- Games
   use('ThePrimeagen/vim-be-good')
